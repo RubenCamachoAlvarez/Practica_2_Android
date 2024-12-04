@@ -1,11 +1,13 @@
 package fes.aragon.practica_2_android
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.widget.Button
+import android.widget.RadioButton
 import android.widget.RadioGroup
 import com.google.android.material.slider.Slider
 
@@ -31,6 +33,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var botonProcesar : Button
 
+    private lateinit var botonViuda : RadioButton
+
+    private lateinit var botonOtro : RadioButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -44,6 +50,10 @@ class MainActivity : AppCompatActivity() {
         this.grupo = findViewById<RadioGroup>(R.id.grupo)
 
         this.botonProcesar = findViewById<Button>(R.id.botonProcesar)
+
+        this.botonViuda = findViewById<RadioButton>(R.id.botonViuda)
+
+        this.botonOtro = findViewById<RadioButton>(R.id.botonOtro)
 
         sliderNumeroHijos.addOnChangeListener {_, value, _ ->
 
@@ -68,7 +78,17 @@ class MainActivity : AppCompatActivity() {
 
         botonProcesar.setOnClickListener {
 
+            val nuevaVista = Intent(this, ActivityInformacion::class.java)
 
+            nuevaVista.putExtra("Numero hijos", sliderNumeroHijos.value)
+
+            nuevaVista.putExtra("Numero hijos edad escolar", sliderNumeroHijosEdadEscolar.value)
+
+            nuevaVista.putExtra("Subsidio estado civil", this.botonViuda.isChecked)
+
+            startActivity(nuevaVista)
+
+            finish()
 
         }
 
@@ -81,6 +101,8 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
 
         handler.removeCallbacks(this.servicioComprobacion)
+
+        Log.i("DESTRUYENDO", "Destruyendo main activity")
 
     }
 
