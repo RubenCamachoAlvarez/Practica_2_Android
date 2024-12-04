@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Programa social de subsidios"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Indique el número de hijos que tiene"
+            android:textSize="15dp"
+            android:textStyle="bold|italic"
+            android:textAlignment="center"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderNumeroHijos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="10"
+            android:stepSize="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Indique el número de hijos en edad escolar"
+            android:textSize="15dp"
+            android:textStyle="bold|italic"
+            android:textAlignment="center"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderNumeroHijosEdadEscolar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:stepSize="1"
+            android:enabled="false"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estado civil"
+            android:textStyle="bold|italic"
+            android:textSize="15dp"
+            android:textAlignment="center"/>
+
+        <RadioGroup
+            android:id="@+id/grupo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/botonViuda"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Viuda"
+                android:textStyle="bold|italic"/>
+
+            <RadioButton
+                android:id="@+id/botonOtro"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Otro"
+                android:textStyle="italic|bold"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/botonProcesar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Procesar datos"
+            android:enabled="false"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
