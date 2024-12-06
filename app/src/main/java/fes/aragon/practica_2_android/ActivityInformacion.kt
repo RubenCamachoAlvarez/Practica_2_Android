@@ -73,23 +73,21 @@ class ActivityInformacion : AppCompatActivity() {
 
     private fun calculate() {
 
-        var montoSubsidioNumeroHijos = 1700.0f
+        var subsidioNumeroHijos = 1700.0f
 
         if(this.numeroHijos in 3.0f..5.0f) {
 
-            montoSubsidioNumeroHijos = 1900.0f
+            subsidioNumeroHijos = 1900.0f
 
         }else if(this.numeroHijos > 5.0f) {
 
-            montoSubsidioNumeroHijos = 1200.0f
+            subsidioNumeroHijos = 1200.0f
 
         }
 
         var montoSubsidioHijoEdadEscolar = 200.0f
 
         var montoSubsidioMadreViuda = 800.0f
-
-        var subsidioNumeroHijos = montoSubsidioNumeroHijos * this.numeroHijos
 
         var subsidioNumeroHijosEdadEscolar = montoSubsidioHijoEdadEscolar * this.numeroHijosEdadEscolar
 
